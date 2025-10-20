@@ -1,18 +1,23 @@
 package ru.practicum.theatre;
 
 import java.util.Objects;
+import java.util.String;
 
 public class Actor extends Person {
-	public double height;
+	private double height;
 	
-	Actor(String name, String surname, Gender gender, double height){
+	protected Actor(String name, String surname, Gender gender, double height){
 		super(name, surname, gender);
 		this.height = height;
 	}
 	
 	public String toString() {
-		return (name + " " + surname + "(" + height + ")");
+		return String.format("%s %s (%s)", super.getName(), super.getSurname(), getHeight());
 	}
+
+    public double getHeight(){
+        return height;
+    }
 	
 	@Override
     public boolean equals(Object obj){
@@ -27,32 +32,13 @@ public class Actor extends Person {
         }
 
         Actor otherObj = (Actor) obj;
-        return Objects.equals(name, otherObj.name) &&
-               Objects.equals(surname, otherObj.surname) &&
+        return Objects.equals(getName(), otherObj.getName()) &&
+               Objects.equals(getSurname(), otherObj.getSurname()) &&
                Objects.equals(height, otherObj.height);
     }
 	
 	@Override 
-    public int hashCode() {
-		/*
-        int hash = 17; 
-        if (name != null) {
-            hash = hash + name.hashCode();
-        }
-        hash = hash * 31; 
-
-        if (surname != null) { 
-            hash = hash + surname.hashCode();
-        }
-        
-        hash = hash * 31; 
-
-        if (height != null) { 
-            hash = hash + height.hashCode();
-        }
-        return hash;
-        */
-        
-        return Objects.hash(name, surname, height);
+    public int hashCode() {        
+        return Objects.hash(super.getName(), super.getSurname(), height);
     }
 }

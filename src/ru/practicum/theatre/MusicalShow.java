@@ -3,19 +3,27 @@ package ru.practicum.theatre;
 import java.util.ArrayList;
 
 public class MusicalShow extends Show {
-	public String musicAuthor;
-	public String librettoText;
+	private String musicAuthor;
+	private String librettoText;
 	
-	MusicalShow(String title, int duration, ArrayList<Actor> listOfActors){
+	protected MusicalShow(String title, int duration, ArrayList<Actor> listOfActors){
 		super(title, duration, listOfActors);
 	}
 	
-	MusicalShow(String title, int duration, ArrayList<Actor> listOfActors, String musicAuthor, String librettoText){
+	protected MusicalShow(String title, int duration, ArrayList<Actor> listOfActors, String musicAuthor, String librettoText){
 		this(title, duration, listOfActors);
 		this.musicAuthor = musicAuthor;
 		this.librettoText = librettoText;
 	}
-	
+
+	public String getLibrettoText(){
+		return librettoText;
+	}
+
+	public String getMusicAuthor(){
+		return musicAuthor;
+	}
+		
 	public void printLibrettoText() {
 		System.out.println(librettoText);
 	}

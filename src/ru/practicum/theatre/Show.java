@@ -3,11 +3,11 @@ package ru.practicum.theatre;
 import java.util.ArrayList;
 
 public class Show {
-	public String title;
-	public int duration;
-	public ArrayList<Actor> listOfActors;
+	private String title;
+	private int duration;
+	private ArrayList<Actor> listOfActors;
 	
-	Show(String title, int duration, ArrayList<Actor> listOfActors){
+	protected Show(String title, int duration, ArrayList<Actor> listOfActors){
 		this.title = title;
 		this.duration = duration;
 		this.listOfActors = listOfActors;	
